@@ -1,0 +1,74 @@
+
+<div class="container">
+    <div class="section-dim p-4 mt-5">
+        <form >
+            <div class="flex-col">
+                <h1>Create new Course</h1>
+                <p class="paragraph op-7 mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae eum placeat repellat fugiat.</p>
+                <div class="grid w-100 row-gap-0">
+                    <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="flex-row align-center gap-20 mb-4">
+                            <button mat-mini-fab disabled aria-label="Example icon button with a home icon" role="button">
+                                <mat-icon>article</mat-icon>
+                            </button>
+                            <p class="text-base fw-500 mb-0 op-7">Main Content</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-8">
+                        <div class="grid row-gap-0">
+                            <div class="col-7">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Course Title</mat-label>
+                                    <input matInput>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Content</mat-label>
+                                    <textarea matInput placeholder="Explain more about your course ..." rows="15"></textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Cover URL</mat-label>
+                                    <input matInput>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4">
+                        <div class="flex-row align-center gap-20 mb-4">
+                            <button mat-mini-fab disabled aria-label="Example icon button with a home icon" role="button">
+                                <mat-icon>person</mat-icon>
+                            </button>
+                            <p class="text-base fw-500 mb-0 op-7">Author</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-8">
+                        <div class="grid row-gap-0">
+                            <div class="col-7">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Author Full Name</mat-label>
+                                    <input matInput placeholder="John Doe">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Avatar URL</mat-label>
+                                    <input matInput>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-row space-between">
+                    <span></span>
+                    <div class="flex-row align-center gap-10">
+                        <button mat-button color="secondar" role="button">Cancel</button>
+                        <button mat-raised-button color="primary" class="px-4" role="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
