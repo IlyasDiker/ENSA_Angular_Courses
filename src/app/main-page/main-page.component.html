@@ -4,7 +4,7 @@
             <li>
                 <mat-card class="h-100 articlecard">
                     <mat-card-content>
-                        <img mat-card-image [src]="item.cover" alt="Photo of a Shiba Inu">
+                        <img mat-card-image [src]="item.cover">
                     </mat-card-content>
                     <mat-card-content class="flex-col flex-grow-1" style="display: flex;">
                         <div class="flex-col flex-grow-1">
@@ -24,7 +24,7 @@
                                 </button>
                                 <mat-menu #menu="matMenu">
                                     <a mat-menu-item [routerLink]="'update/'+item.id" ><mat-icon>edit</mat-icon>Update</a>
-                                    <a mat-menu-item color="warn" ><mat-icon>delete</mat-icon>Delete</a>
+                                    <button mat-menu-item color="warn" (click)="deleteItem(item.id)"><mat-icon>delete</mat-icon>Delete</button>
                                 </mat-menu>
                             </div>
                         </div>
