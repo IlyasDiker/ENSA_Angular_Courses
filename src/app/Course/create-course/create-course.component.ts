@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+const { createCourse } = require('../../../assets/js/api');
 
 @Component({
   selector: 'app-create-course',
@@ -6,10 +8,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-course.component.scss']
 })
 export class CreateCourseComponent implements OnInit {
+  
+  createForm: FormGroup;
 
-  constructor() { }
+  constructor() { 
+    this.createForm = new FormGroup({
+      title: new FormControl(null, Validators.required),
+      content: new FormControl(null),
+      coverUrl: new FormControl(null, Validators.required),
+      author: new FormControl(null, Validators.required),
+      avatarUrl: new FormControl(null),
+    })
+  }
 
   ngOnInit(): void {
+  }
+
+  onSubmit = () =>{
+    if(this.createForm.valid){
+      let payload = {
+        title: this.createForm.get('title')?.value,
+        content: this.createForm.get('content')?.value,
+        cover: this.createForm.get('coverUrl')?.value,
+        author: this.createForm.get('author')?.value,
+        topic: "error",
+        avatar: this.createForm.get('avatarUrl')?.value,
+      }
+      createCourse(payload).then((res:any)=>{
+        console.log('test', res);
+      })
+    }
   }
 
 }

@@ -3,5 +3,12 @@
     display: grid;
     list-style: none;
     gap: 20px;
-    grid-template-columns: repeat( auto-fit, minmax(400px, 1fr) );
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
 }
+
+.articlecard{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+

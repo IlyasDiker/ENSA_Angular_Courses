@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { range } from 'rxjs';
-import { getCourses } from '../../assets/js/js';
+const { getCourses } = require('../../assets/js/api');
 
 @Component({
   selector: 'app-main-page',
@@ -14,7 +14,9 @@ export class MainPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let res = getCourses()
+    getCourses().then((res: any)=>{
+      this.listCourses = res.reverse();
+    });
   }
 
 }

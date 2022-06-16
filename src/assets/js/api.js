@@ -6,32 +6,62 @@ export const API = {
   USER_RESSOURCE : 'user',
 }
 
-export const getCourses = async () => {
-  let res = await axios.get(`${API.host}${API.COURSE_RESSOURCE}`);
-  let dataList = res.data;
-  return dataList ? dataList : [];
+export const getCourses = () => {
+  return new Promise(async (resolve, reject)=>{
+    let res = await axios.get(`${API.host}${API.COURSE_RESSOURCE}`);
+    let dataList = res.data;
+    if(dataList){
+      resolve(dataList);
+    } else {
+      reject();
+    }
+  })
 }
 
-export const getCourse = async (index) => {
-  let res = await axios.get(`${API.host}${API.COURSE_RESSOURCE}/${index}`);
-  let dataEntity = res.data;
-  return dataEntity ? dataEntity : null;
+export const getCourse = (index) => {
+  return new Promise(async (resolve, reject)=>{
+    let res = await axios.get(`${API.host}${API.COURSE_RESSOURCE}/${index}`);
+    let dataEntity = res.data;
+    if(dataEntity){
+      resolve(dataEntity);
+    } else {
+      reject();
+    }
+  })
 }
 
-export const createCourse = async (data) => {
-  let res = await axios.post(`${API.host}${API.COURSE_RESSOURCE}`, {...data});
-  let dataEntity = res.data;
-  return dataEntity ? dataEntity : null;
+export const createCourse = (data) => {
+  return new Promise(async (resolve, reject)=>{
+    let res = await axios.post(`${API.host}${API.COURSE_RESSOURCE}`, {...data});
+    let dataEntity = res.data;
+    if(dataEntity){
+      resolve(dataEntity);
+    } else {
+      reject();
+    }
+  })
 }
 
-export const updateCourse = async (index, data) => {
-  let res = await axios.put(`${API.host}${API.COURSE_RESSOURCE}/${index}`, {...data});
-  let dataEntity = res.data;
-  return dataEntity ? dataEntity : null;
+export const updateCourse = (index, data) => {
+  return new Promise(async (resolve, reject)=>{
+    let res = await axios.put(`${API.host}${API.COURSE_RESSOURCE}/${index}`, {...data});
+    let dataEntity = res.data;
+    if(dataEntity){
+      resolve(dataEntity);
+    } else {
+      reject();
+    }
+  })
 }
 
-export const deleteCourse = async (index) => {
-  let res = await axios.delete(`${API.host}${API.COURSE_RESSOURCE}/${index}`);
-  let dataEntity = res.data;
-  return dataEntity ? dataEntity : null;
+export const deleteCourse = (index) => {
+  return new Promise(async (resolve, reject)=>{
+    let res = await axios.delete(`${API.host}${API.COURSE_RESSOURCE}/${index}`);
+    let dataEntity = res.data;
+    if(dataEntity){
+      resolve(dataEntity);
+    } else {
+      reject();
+    }
+  })
 }
