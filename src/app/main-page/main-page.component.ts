@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { range } from 'rxjs';
+import { getCourses } from '../../assets/js/js';
 
 @Component({
   selector: 'app-main-page',
@@ -8,11 +9,12 @@ import { range } from 'rxjs';
 })
 export class MainPageComponent implements OnInit {
 
-  public listCourses:any = [1,2,3,4,5];
+  public listCourses: any = null;
 
   constructor() { }
 
   ngOnInit(): void {
+    let res = getCourses()
   }
 
 }
