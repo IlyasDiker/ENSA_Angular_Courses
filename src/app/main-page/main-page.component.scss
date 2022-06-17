@@ -37,3 +37,9 @@
         filter: drop-shadow(0 0 1px 1px black);
     }
 }
+
+.mat-card-image{
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+}
