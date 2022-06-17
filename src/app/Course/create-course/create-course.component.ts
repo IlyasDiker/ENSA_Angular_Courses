@@ -15,11 +15,24 @@ export class CreateCourseComponent implements OnInit {
     mode: 'determinate',
     value: 0
   };
+  categories: any = [
+    "Engineering",
+    "Software",
+    "Hardware",
+    "Coding",
+    "Javascript",
+    "Angular",
+    "React",
+    "VueJs",
+    "Php",
+    "Laravel"
+  ];
 
   constructor(private _snackBar: MatSnackBar) { 
     this.createForm = new FormGroup({
       title: new FormControl(null, Validators.required),
       content: new FormControl(null),
+      topic: new FormControl(null, Validators.required),
       coverUrl: new FormControl(null, Validators.required),
       author: new FormControl(null, Validators.required),
       avatarUrl: new FormControl(null),
@@ -37,7 +50,7 @@ export class CreateCourseComponent implements OnInit {
         content: this.createForm.get('content')?.value,
         cover: this.createForm.get('coverUrl')?.value,
         author: this.createForm.get('author')?.value,
-        topic: "error",
+        topic: this.createForm.get('topic')?.value,
         avatar: this.createForm.get('avatarUrl')?.value,
       }
       createCourse(payload).then((res:any)=>{

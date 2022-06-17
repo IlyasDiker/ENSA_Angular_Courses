@@ -11,7 +11,7 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
-                        <a mat-menu-item [routerLink]="'update/'+entityItem.id" ><mat-icon>edit</mat-icon>Update</a>
+                        <a mat-menu-item [routerLink]="'/update/'+entityItem.id" ><mat-icon>edit</mat-icon>Update</a>
                         <button mat-menu-item color="warn" (click)="deleteItem(entityItem.id)"><mat-icon>delete</mat-icon>Delete</button>
                     </mat-menu>
                 </div>

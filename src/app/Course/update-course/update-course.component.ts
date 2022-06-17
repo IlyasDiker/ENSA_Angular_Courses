@@ -17,10 +17,23 @@ export class UpdateCourseComponent implements OnInit {
     mode: 'determinate',
     value: 0
   };
+  categories: any = [
+    "Engineering",
+    "Software",
+    "Hardware",
+    "Coding",
+    "Javascript",
+    "Angular",
+    "React",
+    "VueJs",
+    "Php",
+    "Laravel"
+  ];
 
   constructor( private route: ActivatedRoute, private _snackBar: MatSnackBar) {
     this.updateForm = new FormGroup({
       title: new FormControl(null, Validators.required),
+      topic: new FormControl(null, Validators.required),
       content: new FormControl(null),
       coverUrl: new FormControl(null, Validators.required),
       author: new FormControl(null, Validators.required),
@@ -32,6 +45,7 @@ export class UpdateCourseComponent implements OnInit {
     this.id = this.route.snapshot.params['slug'];
     getCourse(this.id).then((res: any)=>{
       this.updateForm.get('title')?.setValue(res.title);
+      this.updateForm.get('topic')?.setValue(res.topic);
       this.updateForm.get('content')?.setValue(res.content);
       this.updateForm.get('coverUrl')?.setValue(res.cover);
       this.updateForm.get('author')?.setValue(res.author);
@@ -51,7 +65,7 @@ export class UpdateCourseComponent implements OnInit {
         content: this.updateForm.get('content')?.value,
         cover: this.updateForm.get('coverUrl')?.value,
         author: this.updateForm.get('author')?.value,
-        topic: "error",
+        topic: this.updateForm.get('topic')?.value,
         avatar: this.updateForm.get('avatarUrl')?.value,
       }
       updateCourse(this.id, payload).then((res:any)=>{

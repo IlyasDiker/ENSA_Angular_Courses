@@ -15,10 +15,20 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-8">
                         <div class="grid row-gap-0">
-                            <div class="col-7">
+                            <div class="col-xs-12 col-sm-7">
                                 <mat-form-field class="w-100" appearance="outline">
                                     <mat-label>Course Title</mat-label>
                                     <input matInput formControlName="title">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-xs-12 col-sm-5">
+                                <mat-form-field class="w-100" appearance="outline">
+                                    <mat-label>Topic</mat-label>
+                                    <mat-select formControlName="topic">
+                                        <mat-option *ngFor="let category of categories" [value]="category">
+                                          {{category}}
+                                        </mat-option>
+                                      </mat-select>
                                 </mat-form-field>
                             </div>
                             <div class="col-12">
