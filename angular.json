@@ -32,7 +32,8 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "src/assets/js/api.js"
+              "src/assets/js/api.js",
+              "node_modules/marked/marked.min.js"
             ]
           },
           "configurations": {

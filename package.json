@@ -22,6 +22,8 @@
     "@angular/router": "^14.0.0",
     "@types/node": "^18.0.0",
     "axios": "^0.27.2",
+    "marked": "^4.0.17",
+    "ngx-markdown": "^14.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

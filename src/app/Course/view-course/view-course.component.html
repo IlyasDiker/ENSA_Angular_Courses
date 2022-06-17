@@ -1,1 +1,33 @@
-<p>view-course works!</p>
+<div class="container small padded my-5">
+    <ng-container *ngIf="entityItem">
+        <div class="flex-col">
+            <div class="flex-row align-center space-between w-100">
+                <div class="flex-col">
+                    <h1 class="mat-display-2 mb-0">{{entityItem.title}}</h1>
+                    <span class="mat-headline op-7">{{entityItem.topic}}</span>
+                </div>
+                <div class="flex-row gap-10">
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <a mat-menu-item [routerLink]="'update/'+entityItem.id" ><mat-icon>edit</mat-icon>Update</a>
+                        <button mat-menu-item color="warn" (click)="deleteItem(entityItem.id)"><mat-icon>delete</mat-icon>Delete</button>
+                    </mat-menu>
+                </div>
+            </div>
+            <img [src]="entityItem.cover" alt="" class="cover_image">
+            <div class="container small pt-3 text-base">
+                {{entityItem.content}}
+            </div>
+
+            <div class="flex-col mt-5">
+                <label class="op-7">Author:</label>
+                <div class="user_section mt-2">
+                    <img [src]="entityItem.avatar" alt="">
+                    <span class="text-base">{{entityItem.author}}</span>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

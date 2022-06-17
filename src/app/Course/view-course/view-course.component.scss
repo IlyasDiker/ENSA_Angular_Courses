@@ -1,0 +1,22 @@
+.cover_image{
+    width: calc(100% + 60px);
+    aspect-ratio: 16 / 9;
+    margin: 20px -30px;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.user_section{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    img{
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        background: whitesmoke;
+        display: block;
+    }
+}

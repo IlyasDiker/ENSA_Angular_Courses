@@ -12,3 +12,28 @@
     overflow: hidden;
 }
 
+.card_link{
+    text-decoration: none;
+    color: inherit;
+    &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+.empty-state{
+    display: flex;
+    padding: 30px;
+    border-radius: 5px;
+    border: 2px dashed #E1E2E1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    a{
+        padding: 10px;
+        border: 5px;
+        background: white;
+        text-decoration: none;
+        filter: drop-shadow(0 0 1px 1px black);
+    }
+}

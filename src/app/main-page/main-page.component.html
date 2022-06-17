@@ -1,36 +1,68 @@
 <div class="container padded my-5">
     <ul class="courses-grid">
-        <ng-container *ngFor="let item of listCourses">
-            <li>
-                <mat-card class="h-100 articlecard">
-                    <mat-card-content>
-                        <img mat-card-image [src]="item.cover">
-                    </mat-card-content>
-                    <mat-card-content class="flex-col flex-grow-1" style="display: flex;">
-                        <div class="flex-col flex-grow-1">
-                            <span class="text-xl fw-500 mb-2">{{ item.title ?? 'test' }}</span>
-                            <mat-card-subtitle *ngIf="item.topic">{{ item.topic ?? '' }}</mat-card-subtitle>
-                        </div>
-                        <div class="flex-row align-center gap-10">
-                            <div class="flex-col">
-                                <img mat-card-avatar [src]="item.avatar ?? 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png'" *ngIf="item.avatar" />
-                            </div>
-                            <div class="flex-row flex-grow-1">
-                                <span class="text-base">{{item.author}}</span>
-                            </div>
-                            <div class="flex-row">
-                                <button mat-icon-button [matMenuTriggerFor]="menu">
-                                    <mat-icon>more_vert</mat-icon>
-                                </button>
-                                <mat-menu #menu="matMenu">
-                                    <a mat-menu-item [routerLink]="'update/'+item.id" ><mat-icon>edit</mat-icon>Update</a>
-                                    <button mat-menu-item color="warn" (click)="deleteItem(item.id)"><mat-icon>delete</mat-icon>Delete</button>
-                                </mat-menu>
-                            </div>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
-            </li>
+        <ng-container *ngIf="listCourses; else loadingState">
+            <ng-container *ngIf="listCourses.length > 0; else emptyState">
+                <ng-container *ngFor="let item of listCourses">
+                    <li>
+                            <mat-card class="h-100 articlecard">
+                                <mat-card-content>
+                                    <img mat-card-image [src]="item.cover">
+                                </mat-card-content>
+                                <mat-card-content class="flex-col flex-grow-1" style="display: flex;">
+                                    <a [routerLink]="'course/'+item.id" class="card_link">
+                                    <div class="flex-col flex-grow-1">
+                                        <span class="text-xl fw-500 mb-2">{{ item.title ?? 'test' }}</span>
+                                        <mat-card-subtitle *ngIf="item.topic">{{ item.topic ?? '' }}</mat-card-subtitle>
+                                    </div>
+                                    </a>
+                                    <div class="flex-row align-center gap-10">
+                                        <div class="flex-col">
+                                            <img mat-card-avatar [src]="item.avatar ?? 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png'" *ngIf="item.avatar" />
+                                        </div>
+                                        <div class="flex-row flex-grow-1">
+                                            <span class="text-base">{{item.author}}</span>
+                                        </div>
+                                        <div class="flex-row">
+                                            <button mat-icon-button [matMenuTriggerFor]="menu">
+                                                <mat-icon>more_vert</mat-icon>
+                                            </button>
+                                            <mat-menu #menu="matMenu">
+                                                <a mat-menu-item [routerLink]="'update/'+item.id" ><mat-icon>edit</mat-icon>Update</a>
+                                                <button mat-menu-item color="warn" (click)="deleteItem(item.id)"><mat-icon>delete</mat-icon>Delete</button>
+                                            </mat-menu>
+                                        </div>
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+    
+                    </li>
+                </ng-container>
+            </ng-container>
+            <ng-template #emptyState>
+                <div class="container w-100 small">
+                    <div class="empty-state">
+                        <a routerLink="/create">
+                            <mat-card>
+                                <div class="flex-row align-center gap-20">
+                                    <button mat-mini-fab color="primary">
+                                        <mat-icon>add</mat-icon>
+                                    </button>
+                                    <div class="flex-col">
+                                        <span class="text-base fw-500">Create new course.</span>
+                                        <span>Get started with creating your course</span>
+                                    </div>
+                                    <mat-icon>arrow_right_alt</mat-icon>
+                                </div>
+                            </mat-card>
+                        </a>
+                    </div>
+                </div>
+             </ng-template>
         </ng-container>
+        <ng-template #loadingState>
+            <div class="flex-row align-center justify-center w-100">
+                <mat-spinner width="20px"></mat-spinner>
+            </div>
+        </ng-template>
     </ul>
 </div>
