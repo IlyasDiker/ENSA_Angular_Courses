@@ -30,7 +30,6 @@ export class MainPageComponent implements OnInit {
   }
 
   onFilterUpdated = ()=>{
-    console.log('fuck ');
     let filteredData = this.listCoursesPristine.filter((x:any) => x.title.toLowerCase().includes(this.searchFilter.trim().toLowerCase()));
     if(this.priceMaxFilter){
       filteredData = filteredData.filter((x:any) => { parseInt(x.price) < this.priceMaxFilter });
@@ -38,7 +37,6 @@ export class MainPageComponent implements OnInit {
     if(this.priceMinFilter){
       filteredData = filteredData.filter((x:any) => { parseInt(x.price) > this.priceMaxFilter });
     }
-
     this.listCourses = filteredData;
   }
 
