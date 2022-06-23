@@ -33,6 +33,7 @@ export class CreateCourseComponent implements OnInit {
       title: new FormControl(null, Validators.required),
       content: new FormControl(null),
       topic: new FormControl(null, Validators.required),
+      price: new FormControl(null, Validators.required),
       coverUrl: new FormControl(null, Validators.required),
       author: new FormControl(null, Validators.required),
       avatarUrl: new FormControl(null),
@@ -48,6 +49,7 @@ export class CreateCourseComponent implements OnInit {
       let payload = {
         title: this.createForm.get('title')?.value,
         content: this.createForm.get('content')?.value,
+        price: this.createForm.get('price')?.value,
         cover: this.createForm.get('coverUrl')?.value,
         author: this.createForm.get('author')?.value,
         topic: this.createForm.get('topic')?.value,

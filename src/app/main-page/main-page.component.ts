@@ -9,7 +9,12 @@ const { getCourses, deleteCourse } = require('../../assets/js/api');
 })
 export class MainPageComponent implements OnInit {
 
+  public listCoursesPristine: any = null;
   public listCourses: any = null;
+
+  public searchFilter: any = null;
+  public priceMinFilter: any = null;
+  public priceMaxFilter: any = null;
 
   constructor() { }
 
@@ -19,8 +24,22 @@ export class MainPageComponent implements OnInit {
 
   fetchData = () => {
     getCourses().then((res: any)=>{
-      this.listCourses = res.reverse();
+      this.listCoursesPristine = res.reverse();
+      this.listCourses = this.listCoursesPristine;
     });
+  }
+
+  onFilterUpdated = ()=>{
+    console.log('fuck ');
+    let filteredData = this.listCoursesPristine.filter((x:any) => x.title.toLowerCase().includes(this.searchFilter.trim().toLowerCase()));
+    if(this.priceMaxFilter){
+      filteredData = filteredData.filter((x:any) => { parseInt(x.price) < this.priceMaxFilter });
+    }
+    if(this.priceMinFilter){
+      filteredData = filteredData.filter((x:any) => { parseInt(x.price) > this.priceMaxFilter });
+    }
+
+    this.listCourses = filteredData;
   }
 
   deleteItem = (id:any) => [
@@ -31,4 +50,6 @@ export class MainPageComponent implements OnInit {
       console.log('something went wrong');
     })
   ]
+
+  parseInt = parseInt;
 }

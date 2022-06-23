@@ -35,6 +35,7 @@ export class UpdateCourseComponent implements OnInit {
       title: new FormControl(null, Validators.required),
       topic: new FormControl(null, Validators.required),
       content: new FormControl(null),
+      price: new FormControl(null, Validators.required),
       coverUrl: new FormControl(null, Validators.required),
       author: new FormControl(null, Validators.required),
       avatarUrl: new FormControl(null),
@@ -47,6 +48,7 @@ export class UpdateCourseComponent implements OnInit {
       this.updateForm.get('title')?.setValue(res.title);
       this.updateForm.get('topic')?.setValue(res.topic);
       this.updateForm.get('content')?.setValue(res.content);
+      this.updateForm.get('price')?.setValue(res.price);
       this.updateForm.get('coverUrl')?.setValue(res.cover);
       this.updateForm.get('author')?.setValue(res.author);
       this.updateForm.get('avatarUrl')?.setValue(res.avatar);
@@ -64,6 +66,7 @@ export class UpdateCourseComponent implements OnInit {
         title: this.updateForm.get('title')?.value,
         content: this.updateForm.get('content')?.value,
         cover: this.updateForm.get('coverUrl')?.value,
+        price: this.updateForm.get('price')?.value,
         author: this.updateForm.get('author')?.value,
         topic: this.updateForm.get('topic')?.value,
         avatar: this.updateForm.get('avatarUrl')?.value,
