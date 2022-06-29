@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 const { updateCourse, getCourse } = require('../../../assets/js/api');
 
 @Component({
@@ -30,7 +30,7 @@ export class UpdateCourseComponent implements OnInit {
     "Laravel"
   ];
 
-  constructor( private route: ActivatedRoute, private _snackBar: MatSnackBar) {
+  constructor( private route: ActivatedRoute, private router: Router, private _snackBar: MatSnackBar) {
     this.updateForm = new FormGroup({
       title: new FormControl(null, Validators.required),
       topic: new FormControl(null, Validators.required),
@@ -79,10 +79,17 @@ export class UpdateCourseComponent implements OnInit {
           duration: 4000
         });
 
+        this.router.navigate(['/course/'+this.id]);
+
         setTimeout(()=>{
           this.progressForm.value = 0;
         }, 1000)
       })
     }
+  }
+
+  onClear = (event: any) =>{
+    event.preventDefault();
+    this.ngOnInit();
   }
 }
