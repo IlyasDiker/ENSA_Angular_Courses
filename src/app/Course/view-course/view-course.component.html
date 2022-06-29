@@ -18,7 +18,7 @@
             </div>
             
             <img [src]="entityItem.cover" alt="" class="cover_image">
-            <div class="container small pt-3 text-base">
+            <div class="container small pt-3 w-100" [innerHTML]="contentSanitized">
                 {{entityItem.content}}
             </div>
             
