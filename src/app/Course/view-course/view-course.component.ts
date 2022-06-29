@@ -36,4 +36,10 @@ export class ViewCourseComponent implements OnInit {
     })
   ]
 
+  buyCourse = () => {
+    this._snackBar.open("Hey, It's just a demo","Close", {
+      duration: 4000
+    });
+  }
+
 }

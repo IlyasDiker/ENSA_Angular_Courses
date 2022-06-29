@@ -16,10 +16,12 @@
                     </mat-menu>
                 </div>
             </div>
+            
             <img [src]="entityItem.cover" alt="" class="cover_image">
             <div class="container small pt-3 text-base">
                 {{entityItem.content}}
             </div>
+            
 
             <div class="flex-col mt-5">
                 <label class="op-7">Author:</label>
@@ -27,6 +29,19 @@
                     <img [src]="entityItem.avatar" alt="">
                     <span class="text-base">{{entityItem.author}}</span>
                 </div>
+            </div>
+            <div class="container small sticky-b-30 pt-4 w-100">
+                <mat-card class="price-card">
+                    <div class="flex-row space-between">
+                        <div class="flex-col mr-5">
+                            <label class="text-base fw-300 op-7">Price</label>
+                            <span class="text-xl fw-500">
+                                {{entityItem.price}} <small>MAD</small>
+                            </span>
+                        </div>
+                        <button mat-flat-button color="primary" (click)="buyCourse()">Buy This</button>
+                    </div>
+                </mat-card>
             </div>
         </div>
     </ng-container>

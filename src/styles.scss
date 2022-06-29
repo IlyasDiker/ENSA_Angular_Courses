@@ -2743,3 +2743,27 @@
   left: 0;
   right: 0;
 }
+
+.truncate {
+  max-width: 200px;
+  line-clamp: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+
+.flex-shrink-0{
+  flex-shrink: 0;
+}
+.flex-shrink-1{
+  flex-shrink: 1;
+}
+.w-fit{
+  width: fit-content;
+}
+
+.sticky-b-30{
+  position: sticky;
+  bottom: 30px;
+}

@@ -10,13 +10,13 @@
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Price Min</mat-label>
-                    <input matInput [(ngModel)]="priceMinFilter" (ngModelChange)="onFilterUpdated()" type="number" min="0">
+                    <input matInput name="priceMinFilter" [(ngModel)]="priceMinFilter" (ngModelChange)="onFilterUpdated()" type="number" min="0">
                 </mat-form-field>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3">
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Price Max</mat-label>
-                    <input matInput [(ngModel)]="priceMaxFilter" (ngModelChange)="onFilterUpdated()" type="number" min="0">
+                    <input matInput name="priceMaxFilter" [(ngModel)]="priceMaxFilter" (ngModelChange)="onFilterUpdated()" type="number" min="0">
                 </mat-form-field>
             </div>
         </div>
@@ -32,14 +32,14 @@
                             </mat-card-content>
                             <mat-card-content class="flex-col flex-grow-1" style="display: flex;">
                                 <div class="flex-row flex-wrap gap-10">
-                                    <div class="flex-col flex-grow-1">
-                                        <a [routerLink]="'course/'+item.id" class="card_link mb-2">
-                                            <span class="text-xl fw-500">{{ item.title ?? 'test' }}</span>
+                                    <div class="flex-col flex-grow-1 flex-shrink-1">
+                                        <a [routerLink]="'course/'+item.id" class="card_link mb-2" [title]="item.title ?? '- No Title-'">
+                                            <span class="text-xl fw-500 ">{{ item.title ?? '- No Title-' }}</span>
                                         </a>
                                         <mat-card-subtitle *ngIf="item.topic">{{ item.topic ?? '' }}</mat-card-subtitle>
                                     </div>
-                                    <div class="flex-col">
-                                        <span class="text-xl fw-500">{{ parseInt(item.price) }} MAD</span>
+                                    <div class="flex-col flex-shrink-0">
+                                        <span class="text-xl fw-500 text-right">{{ parseInt(item.price) }} <small class="fw-400">MAD</small></span>
                                     </div>
                                 </div>
                                 <div class="flex-row align-center gap-10">

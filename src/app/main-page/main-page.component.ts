@@ -30,12 +30,13 @@ export class MainPageComponent implements OnInit {
   }
 
   onFilterUpdated = ()=>{
-    let filteredData = this.listCoursesPristine.filter((x:any) => x.title.toLowerCase().includes(this.searchFilter.trim().toLowerCase()));
+    let search_keywork = this.searchFilter ? this.searchFilter.trim() : '';
+    let filteredData = this.listCoursesPristine.filter((x:any) => x.title.toLowerCase().includes(search_keywork.toLowerCase()));
     if(this.priceMaxFilter){
-      filteredData = filteredData.filter((x:any) => { parseInt(x.price) < this.priceMaxFilter });
+      filteredData = filteredData.filter((x:any) => parseInt(x.price) < this.priceMaxFilter);
     }
     if(this.priceMinFilter){
-      filteredData = filteredData.filter((x:any) => { parseInt(x.price) > this.priceMaxFilter });
+      filteredData = filteredData.filter((x:any) => parseInt(x.price) > this.priceMinFilter);
     }
     this.listCourses = filteredData;
   }
